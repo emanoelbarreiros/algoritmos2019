@@ -1,13 +1,31 @@
 package estruturas;
 
 public class Arvore<C extends Integer, T> {
-	
+
 	private No<C, T> raiz;
-	
+
+	public No<C, T> buscaBinaria(C chave) {
+		return buscaBinaria(raiz, chave);
+	}
+
+	public No<C, T> buscaBinaria(No<C, T> no, C chave) {
+		if (no != null) {
+			if (no.getChave().equals(chave)) {
+				return no;
+			} else if (chave < no.getChave()) {
+				return buscaBinaria(no.getEsquerda(), chave);
+			} else {
+				return buscaBinaria(no.getDireita(), chave);
+			}
+		} else {
+			return null;
+		}
+	}
+
 	public void inserir(No<C, T> no) {
 		No<C, T> anterior = null;
 		No<C, T> atual = raiz;
-		
+
 		while (atual != null) {
 			anterior = atual;
 			if (no.getChave() < atual.getChave()) {
@@ -25,6 +43,7 @@ public class Arvore<C extends Integer, T> {
 			anterior.setDireita(no);
 		}
 	}
+
 	public void imprimirEmOrdem(No<C, T> no) {
 		if (no != null) {
 			imprimirEmOrdem(no.getEsquerda());
@@ -32,7 +51,7 @@ public class Arvore<C extends Integer, T> {
 			imprimirEmOrdem(no.getDireita());
 		}
 	}
-	
+
 	public void imprimirPreOrdem(No<C, T> no) {
 		if (no != null) {
 			System.out.println(no.getChave());
@@ -40,7 +59,7 @@ public class Arvore<C extends Integer, T> {
 			imprimirPreOrdem(no.getDireita());
 		}
 	}
-	
+
 	public void imprimirPosOrdem(No<C, T> no) {
 		if (no != null) {
 			imprimirPosOrdem(no.getEsquerda());
@@ -48,7 +67,7 @@ public class Arvore<C extends Integer, T> {
 			System.out.println(no.getChave());
 		}
 	}
-	
+
 	public void imprimirEmOrdem() {
 		if (raiz != null) {
 			imprimirEmOrdem(raiz.getEsquerda());
@@ -56,7 +75,7 @@ public class Arvore<C extends Integer, T> {
 			imprimirEmOrdem(raiz.getDireita());
 		}
 	}
-	
+
 	public void imprimirPreOrdem() {
 		if (raiz != null) {
 			System.out.println(raiz.getChave());
@@ -64,7 +83,7 @@ public class Arvore<C extends Integer, T> {
 			imprimirPreOrdem(raiz.getDireita());
 		}
 	}
-	
+
 	public void imprimirPosOrdem() {
 		if (raiz != null) {
 			imprimirPosOrdem(raiz.getEsquerda());

@@ -16,6 +16,9 @@ public class TestaArvore {
 		arvore.inserir(new No<Integer, Pessoa>(p4.getAltura(), p4));
 		
 		arvore.imprimirPreOrdem();
+		
+		Pessoa p = arvore.buscaBinaria(200).getItem();
+		System.out.println(p.getNome());
 	}
 
 }

@@ -1,15 +1,16 @@
 package estruturas;
 
-public class No<C extends Integer, V> {
+public class No<C extends Integer, I> {
 	
 	private C chave;
-	private V item;
-	private No<C, V> predecessor;
+	private I item;
 	
-	private No<C, V> esquerda;
-	private No<C, V> direita;
+	private No<C, I> predecessor;
 	
-	public No(C chave, V item) {
+	private No<C, I> esquerda;
+	private No<C, I> direita;
+	
+	public No(C chave, I item) {
 		this.chave = chave;
 		this.item = item;
 	}
@@ -18,27 +19,27 @@ public class No<C extends Integer, V> {
 		return chave;
 	}
 	
-	public No<C, V> getEsquerda() {
+	public No<C, I> getEsquerda() {
 		return esquerda;
 	}
 	
-	public No<C, V> getDireita() {
+	public No<C, I> getDireita() {
 		return direita;
 	}
 
-	public V getItem() {
+	public I getItem() {
 		return item;
 	}
 
-	public void setItem(V item) {
+	public void setItem(I item) {
 		this.item = item;
 	}
 
-	public No<C, V> getPredecessor() {
+	public No<C, I> getPredecessor() {
 		return predecessor;
 	}
 
-	public void setPredecessor(No<C, V> predecessor) {
+	public void setPredecessor(No<C, I> predecessor) {
 		this.predecessor = predecessor;
 	}
 
@@ -46,11 +47,11 @@ public class No<C extends Integer, V> {
 		this.chave = chave;
 	}
 
-	public void setEsquerda(No<C, V> esquerda) {
+	public void setEsquerda(No<C, I> esquerda) {
 		this.esquerda = esquerda;
 	}
 
-	public void setDireita(No<C, V> direita) {
+	public void setDireita(No<C, I> direita) {
 		this.direita = direita;
 	}
 	
